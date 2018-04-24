@@ -1,6 +1,6 @@
 {
   "minimum-stability": "dev",
   "require": {
-    "xmlscript/http": "dev-master"
+    "xmlscript/tag": "dev-master"
   }
 }

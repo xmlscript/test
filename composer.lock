@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a489832e9a0a4d4268b5bb3f7d08ed05",
+    "content-hash": "217728acdfcf20191b170feb95b5c531",
     "packages": [
         {
-            "name": "xmlscript/http",
+            "name": "xmlscript/tag",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/xmlscript/http.git",
-                "reference": "61064054661025fde568342a5ee59dfa06ef7a16"
+                "url": "https://github.com/xmlscript/tag.git",
+                "reference": "9cdb80f227c208fd9c9e239df1e53283c6e5072f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/xmlscript/http/61064054661025fde568342a5ee59dfa06ef7a16.zip",
-                "reference": "61064054661025fde568342a5ee59dfa06ef7a16",
+                "url": "https://files.phpcomposer.com/files/xmlscript/tag/9cdb80f227c208fd9c9e239df1e53283c6e5072f.zip",
+                "reference": "9cdb80f227c208fd9c9e239df1e53283c6e5072f",
                 "shasum": ""
             },
             "require": {
@@ -26,7 +26,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "http\\": ""
+                    "tag\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -39,15 +39,15 @@
                     "email": "xmlscript@gmail.com"
                 }
             ],
-            "description": "http",
-            "time": "2018-04-23T09:25:32+00:00"
+            "description": "html tag",
+            "time": "2018-04-23T08:01:40+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "xmlscript/http": 20
+        "xmlscript/tag": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
