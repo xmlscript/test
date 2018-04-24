@@ -149,4 +149,4 @@ class msg extends cb\message{
 }
 
 
-die(new callback($_ENV['TOKEN'], new msg, new ev));
+die(new cb\callback($_ENV['TOKEN'], new msg, new ev));
