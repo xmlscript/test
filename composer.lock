@@ -148,42 +148,6 @@
             ],
             "description": "rest wrapper",
             "time": "2018-04-23T09:32:12+00:00"
-        },
-        {
-            "name": "xmlscript/tag",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/xmlscript/tag.git",
-                "reference": "9cdb80f227c208fd9c9e239df1e53283c6e5072f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/xmlscript/tag/9cdb80f227c208fd9c9e239df1e53283c6e5072f.zip",
-                "reference": "9cdb80f227c208fd9c9e239df1e53283c6e5072f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "tag\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "xmlscript",
-                    "email": "xmlscript@gmail.com"
-                }
-            ],
-            "description": "html tag",
-            "time": "2018-04-23T08:01:40+00:00"
         }
     ],
     "packages-dev": [],
