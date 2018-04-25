@@ -17,9 +17,20 @@ class msg extends cb\message{
     $str = trim((string)$reply->Recognition?:(string)$reply->Content,"。！? \n\r\t\0");
 
     switch($str){
+      case 'appid':
+        try{
+          $api = new invoke($_ENV['APPID'],$_ENV['SECRET']);
+          return $reply->text($api->appid());
+        }catch(Exception $e){
+          return $reply->text($e->getCode.' '.$e->getMessage());
+        }
       case 'token':
-        $api = new invoke($_ENV['APPID'],$_ENV['SECRET']);
-        return $reply->text($api->token());
+        try{
+          $api = new invoke($_ENV['APPID'],$_ENV['SECRET']);
+          return $reply->text($api->token());
+        }catch(Exception $e){
+          return $reply->text($e->getCode.' '.$e->getMessage());
+        }
       case 'menu':
         $api = new invoke($_ENV['APPID'],$_ENV['SECRET']);
         return $reply->text(json_encode($api->menu()));
