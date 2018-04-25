@@ -39,6 +39,7 @@ class msg extends cb\message{
       case 'menu':
         $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
         return $reply->text(json_encode($api->menu()));
+
       case 'w':
         $name = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
         return $reply->text($name);
