@@ -44,8 +44,8 @@ class msg extends cb\message{
       case 'who':
       case 'whoami':
         try{
-          $name = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
-          return $reply->text($name);
+          $obj = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
+          return $reply->text($obj->nickname);
         }catch(Throwable $e){
           return $reply->text($e->getMessage());
         }
