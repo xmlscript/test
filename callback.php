@@ -55,6 +55,7 @@ class msg extends cb\message{
       case 'voice':
       case '你好':
         return $reply->text('从voice转换文字。。。');
+
       case 'view':
       case 'link':
         return $reply->text('http://140.143.54.195');
