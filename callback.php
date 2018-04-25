@@ -17,6 +17,9 @@ class msg extends cb\message{
     $str = trim((string)$reply->Recognition?:(string)$reply->Content,"。！? \n\r\t\0");
 
     switch($str){
+      case 'token':
+        $api = new invoke($_ENV['APPID'],$_ENV['SECRET']);
+        return $reply->text($api->token());
       case 'menu':
         $api = new invoke($_ENV['APPID'],$_ENV['SECRET']);
         return $reply->text(json_encode($api->menu()));
