@@ -24,14 +24,14 @@ class msg extends cb\message{
         try{
           $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
           return $reply->text($api->appid());
-        }catch(Exception $e){
+        }catch(Throwable $e){
           return $reply->text($e->getCode.' '.$e->getMessage());
         }
       case 'token':
         try{
           $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
           return $reply->text($api->token());
-        }catch(Exception $e){
+        }catch(Throwable $e){
           return $reply->text($e->getCode.' '.$e->getMessage());
         }
       case 'menu':
