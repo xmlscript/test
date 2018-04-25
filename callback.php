@@ -27,6 +27,7 @@ class msg extends cb\message{
         }catch(Throwable $e){
           return $reply->text($e->getCode.' '.$e->getMessage());
         }
+
       case 'token':
         try{
           $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
