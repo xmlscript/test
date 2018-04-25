@@ -41,8 +41,12 @@ class msg extends cb\message{
         return $reply->text(json_encode($api->menu()));
 
       case 'w':
-        $name = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
-        return $reply->text($name);
+        try{
+          $name = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
+          return $reply->text($name);
+        }catch(Throwable $e){
+          return $reply->text($e->getMessage());
+        }
       case 'img':
       case 'image':
         return $reply->image('i8OxLeDRD135otaPf5MyNFskcPkLJ9n-dqMDr_GqUtofJuuZyEgu5KNTaRuH5Os8');
