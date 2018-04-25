@@ -12,20 +12,6 @@ class ev extends cb\event{
 class msg extends cb\message{
 
 
-  /**
-   * 今天张了多少粉儿
-   * 一共有多少粉儿
-   * 服务器用量有多少？
-   * 什么时候续费？
-   * error_log日志有什么错误？
-   * 获取当前正在使用的菜单和个性菜单
-   * 管理员个性菜单可以直接看到管理选项
-   * 获取微信服务器IP地址
-   * 生成场景二维码
-   * 生成短链接
-   * 获取客服聊天记录
-   * 
-   */
   function text(reply $reply):?DOMDocument{
 
     $str = trim((string)$reply->Recognition?:(string)$reply->Content,"。！? \n\r\t\0");
@@ -73,28 +59,16 @@ class msg extends cb\message{
         return $reply->success();
       case 'kf':
         return $reply->transfer_customer_service();
-      case '【收到不支持的消息类型，暂无法显示】'://可能是个人名片
+      case '【收到不支持的消息类型，暂无法显示】':
         return null;
       default:
-        switch(mt_rand(1,10)){
+        switch(mt_rand(1,4)){
           case 1:
             return $reply->text('听不懂1。要不要回复kf转接人工客服?');
           case 2:
             return $reply->text('听不懂2。要不要回复kf转接人工客服?');
           case 3:
             return $reply->text('听不懂3。要不要回复kf转接人工客服?');
-          case 4:
-            return $reply->text('听不懂4。要不要回复kf转接人工客服?');
-          case 5:
-            return $reply->text('听不懂5。要不要回复kf转接人工客服?');
-          case 6:
-            return $reply->text('听不懂6。要不要回复kf转接人工客服?');
-          case 7:
-            return $reply->text('听不懂7。要不要回复kf转接人工客服?');
-          case 8:
-            return $reply->text('听不懂8。要不要回复kf转接人工客服?');
-          case 10:
-            return $reply->text('听不懂9。要不要回复kf转接人工客服?');
           default:
             return $reply->text('听不懂default。要不要回复kf转接人工客服?');
         }
@@ -102,28 +76,17 @@ class msg extends cb\message{
   }
 
 
-  /**
-   * 有可能开通了语音识别
-   */
   function voice(reply $reply):?\DOMDocument{
     return $this->text($reply);
-    //TODO 考虑采用迅飞识别+迅飞语义分析
     return $reply->text($reply->Recognition);
   }
 
 
-  /**
-   * 用户主动发来的图片，很有可能是个表情图片，需要带着id自己去拉取
-   * 注意！收不到表情包图片
-   */
   function image(reply $reply):?\DOMDocument{
     return $reply->text($reply->MediaId);
   }
 
 
-  /**
-   * 临时存了个地方，需要带着id自己去拉取
-   */
   function video(reply $reply):?\DOMDocument{
     return $reply->text(__METHOD__);
   }
@@ -134,17 +97,11 @@ class msg extends cb\message{
   }
 
 
-  /**
-   * 主动发来的位置，不一定是当前位置（默认是）
-   */
   function location(reply $reply):?\DOMDocument{
     return $reply->text(__METHOD__);
   }
 
 
-  /**
-   * 用户主动发来的链接
-   */
   function link(reply $reply):?\DOMDocument{
     return $reply->text(__METHOD__);
   }
