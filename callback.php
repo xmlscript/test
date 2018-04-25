@@ -27,7 +27,7 @@ class msg extends cb\message{
         return $reply->text(session_save_path());
       case 'w':
         $name = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
-        return $reply->text('$name');
+        return $reply->text($name);
       case 'img':
       case 'image':
         return $reply->image('i8OxLeDRD135otaPf5MyNFskcPkLJ9n-dqMDr_GqUtofJuuZyEgu5KNTaRuH5Os8');
