@@ -59,6 +59,7 @@ class msg extends cb\message{
       case 'view':
       case 'link':
         return $reply->text('http://140.143.54.195');
+
       case 'news':
         $a = $reply->article('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','yyyyyyyyyyyyyyyyyyyyyyyyyyy','http://www.qq.com/',null);
         return $reply->news($a);
