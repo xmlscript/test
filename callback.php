@@ -68,6 +68,7 @@ class msg extends cb\message{
 
       case 'article':
         return $reply->article('抬头','描述','http://www.qq.com/','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
+
       case 'news1':
         return $reply->news('抬头111','没有链接','','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
       case 'news2':
