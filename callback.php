@@ -41,6 +41,7 @@ class msg extends cb\message{
         return $reply->text(json_encode($api->menu()));
 
       case 'w':
+      case 'who':
         try{
           $name = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
           return $reply->text($name);
@@ -63,6 +64,7 @@ class msg extends cb\message{
       case 'news':
         $a = $reply->article('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','yyyyyyyyyyyyyyyyyyyyyyyyyyy','http://www.qq.com/',null);
         return $reply->news($a);
+
       case 'article':
         return $reply->article('抬头','描述','http://www.qq.com/','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
       case 'news1':
