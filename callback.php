@@ -42,6 +42,7 @@ class msg extends cb\message{
 
       case 'w':
       case 'who':
+      case 'whoami':
         try{
           $name = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
           return $reply->text($name);
