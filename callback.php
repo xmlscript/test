@@ -37,7 +37,7 @@ class msg extends cb\message{
       case 'env':
         return $reply->text(session_save_path());
       case 'w':
-        $name = mp\emit::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
+        $name = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
         return $reply->text($name);
       case 'img':
       case 'image':
