@@ -51,6 +51,7 @@ class msg extends cb\message{
       case 'img':
       case 'image':
         return $reply->image('i8OxLeDRD135otaPf5MyNFskcPkLJ9n-dqMDr_GqUtofJuuZyEgu5KNTaRuH5Os8');
+
       case 'voice':
       case '你好':
         return $reply->text('从voice转换文字。。。');
