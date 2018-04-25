@@ -26,11 +26,14 @@ class msg extends cb\message{
    * 获取客服聊天记录
    * 
    */
-  function text(reply $reply):?\DOMDocument{
+  function text(reply $reply):?DOMDocument{
 
     $str = trim((string)$reply->Recognition?:(string)$reply->Content,"。！? \n\r\t\0");
 
     switch($str){
+      case 'menu':
+        $api = new invoke($_ENV['APPID'],$_ENV['SECRET']);
+        return $reply->text(json_encode($api->menu()));
       case 'env':
         return $reply->text(session_save_path());
       case 'w':
