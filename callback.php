@@ -47,6 +47,7 @@ class msg extends cb\message{
         }catch(Throwable $e){
           return $reply->text($e->getMessage());
         }
+
       case 'img':
       case 'image':
         return $reply->image('i8OxLeDRD135otaPf5MyNFskcPkLJ9n-dqMDr_GqUtofJuuZyEgu5KNTaRuH5Os8');
