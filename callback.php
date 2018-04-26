@@ -19,10 +19,10 @@ class msg extends cb\message{
     switch($str){
       case 'r':
         $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-        return $reply->text($api->r());
+        return $reply->text($api->read());
       case 'w':
         $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-        return $reply->text($api->w());
+        return $reply->text($api->write());
 
       case 'env':
         return $reply->text($_ENV['APPID'].' '.$_ENV['SECRET']);
