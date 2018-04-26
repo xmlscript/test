@@ -17,6 +17,13 @@ class msg extends cb\message{
     $str = trim((string)$reply->Recognition?:(string)$reply->Content,"。！? \n\r\t\0");
 
     switch($str){
+      case 'r':
+        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
+        return $reply->text($api->r());
+      case 'w':
+        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
+        return $reply->text($api->w());
+
       case 'env':
         return $reply->text($_ENV['APPID'].' '.$_ENV['SECRET']);
 
