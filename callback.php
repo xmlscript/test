@@ -17,7 +17,6 @@ class msg extends cb\message{
     $str = trim((string)$reply->Recognition?:(string)$reply->Content,"。！? \n\r\t\0");
 
     switch($str){
-
       case 'env':
         return $reply->text($_ENV['APPID'].' '.$_ENV['SECRET']);
 
