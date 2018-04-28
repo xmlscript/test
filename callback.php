@@ -19,8 +19,12 @@ class msg extends cb\message{
     switch($str){
 
       case 'w':
-        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-        return $reply->text($api->whoami());
+        try{
+          $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
+          return $reply->text($api->whoami());
+        }catch(Throwable $e){
+          return $reply->text($e->getCode.' '.$e->getMessage());
+        }
 
       case 'env':
         return $reply->text($_ENV['APPID'].' '.$_ENV['SECRET']);
