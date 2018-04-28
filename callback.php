@@ -42,12 +42,8 @@ class msg extends cb\message{
         return $reply->text(json_encode($api->menu()));
 
       case 'who':
-        try{
-          $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-          return $reply->text($api->who());
-        }catch(Throwable $e){
-          return $reply->text($e->getCode.' '.$e->getMessage());
-        }
+        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
+        return $reply->text($api->who());
 
       case 'w':
       case 'whoami':
