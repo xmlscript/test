@@ -21,7 +21,7 @@ class msg extends cb\message{
       case 'w':
         try{
           $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-          return $reply->text($api->whoami()['nickname']);
+          return $reply->text($api->whoami($reply->FromUserName)['nickname']);
         }catch(Throwable $e){
           return $reply->text($e->getCode.' '.$e->getMessage());
         }
