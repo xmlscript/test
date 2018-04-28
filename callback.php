@@ -18,14 +18,6 @@ class msg extends cb\message{
 
     switch($str){
 
-      case 'w':
-        try{
-          $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-          return $reply->text($api->whoami($reply->FromUserName)->nickname);
-        }catch(Throwable $e){
-          return $reply->text($e->getCode.' '.$e->getMessage());
-        }
-
       case 'env':
         return $reply->text($_ENV['APPID'].' '.$_ENV['SECRET']);
 
@@ -54,7 +46,7 @@ class msg extends cb\message{
       case 'whoami':
         try{
           $obj = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
-          return $reply->text($obj->nickname);
+          return $reply->text($obj->nickname??$obj->errmsg);
         }catch(Throwable $e){
           return $reply->text($e->getMessage());
         }
