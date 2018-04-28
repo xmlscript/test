@@ -41,8 +41,11 @@ class msg extends cb\message{
         $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
         return $reply->text(json_encode($api->menu()));
 
-      case 'w':
       case 'who':
+        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
+        return $reply->text($api->who());
+
+      case 'w':
       case 'whoami':
         try{
           $obj = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
