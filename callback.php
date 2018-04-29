@@ -45,7 +45,6 @@ class msg extends cb\message{
         return $reply->text($api->who());
 
       case 'w':
-      case 'whoami':
         try{
           $obj = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
           return $reply->text($obj->nickname??$obj->errmsg);
