@@ -36,7 +36,14 @@ class msg extends cb\message{
           return $reply->text($e->getCode.' '.$e->getMessage());
         }
 
+      case 'mnu'://TODO
+        return $reply->text(new mp\menu(new mp\token($_ENV['APPID'],$_ENV['SECRET'])));
+
       case 'menu':
+        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
+        return $reply->text(json_encode($api->menu()));
+
+      case 'menu rollback':
         $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
         return $reply->text(json_encode($api->menu()));
 
