@@ -2,6 +2,7 @@
   "minimum-stability": "dev",
   "require": {
     "xmlscript/cb": "dev-master",
-    "xmlscript/mp": "dev-master"
+    "xmlscript/mp": "dev-master",
+    "xmlscript/wx": "dev-master"
   }
 }
