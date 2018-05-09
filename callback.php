@@ -20,36 +20,20 @@ class msg extends cb\message{
       case 'env':
         return $reply->text($_ENV['APPID'].' '.$_ENV['SECRET']);
 
-      case 'appid':
-        try{
-          $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-          return $reply->text($api->appid());
-        }catch(Throwable $e){
-          return $reply->text($e->getCode.' '.$e->getMessage());
-        }
-
       case 'token':
-        try{
-          $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-          return $reply->text($api->token());
-        }catch(Throwable $e){
-          return $reply->text($e->getCode.' '.$e->getMessage());
-        }
-
-      case 'mnu'://TODO
-        return $reply->text(new mp\menu(new mp\token($_ENV['APPID'],$_ENV['SECRET'])));
+        return $reply->text(new mp\token($_ENV['APPID'],$_ENV['SECRET']));
 
       case 'menu':
-        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-        return $reply->text(json_encode($api->menu()));
+        return $reply->text(new mp\menu(new mp\token($_ENV['APPID'],$_ENV['SECRET'])));
 
       case 'menu rollback':
         $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
         return $reply->text(json_encode($api->menu()));
 
       case 'who':
-        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-        return $reply->text($api->who());
+        $token = new mp\token($_ENV['APPID'],$_ENV['SECRET']);
+        $user = new mp\user($token);
+        return $reply->text($user->info()->nickname);
 
       case 'w':
         try{
