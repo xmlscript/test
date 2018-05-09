@@ -1,5 +1,9 @@
 <?php require 'vendor/autoload.php';
 var_dump($_GET);
 
-var_dump(new wx\user(wx\token::code($_ENV['APPID'],$_ENV['SECRET'],$_GET['code'])));
+$token = wx\token::code($_ENV['APPID'],$_ENV['SECRET'],$_GET['code']);
+
+var_dump("$token");
+
+var_dump(new wx\user($token));
 
