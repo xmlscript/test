@@ -8,8 +8,6 @@ $(document).ready(()=>{
 
   $.getJSON('/api.php',{url:location.href}, json=>{
 
-    alert(JSON.stringify(json))
-
       let cfg = Object.assign(
           json,
           {jsApiList: [
@@ -19,9 +17,8 @@ $(document).ready(()=>{
         ]}
       )
 
-      alert(JSON.stringify(cfg))
-
     wx.config(cfg)
+
   });
 
   wx.checkJsApi({jsApiList: ['openLocation','getLocation']},res=>{
