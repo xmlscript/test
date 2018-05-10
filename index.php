@@ -4,7 +4,7 @@
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
 <script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script>
 <script>
-$(document).ready((){
+$(document).ready(()=>{
 
   $.getJSON('/api.php',{url:location.href}, json=>{
 
@@ -25,6 +25,9 @@ $(document).ready((){
   });
 
   wx.checkJsApi({jsApiList: ['openLocation','getLocation']},res=>{
+
+    alert(JSON.stringify(res))
+
     if(res.checkResult.openLocation === false)
       alert('不支持openLocation接口 :(')
     if(res.checkResult.getLocation === false)
@@ -42,7 +45,10 @@ $(document).ready((){
         alert(`latitude longitude`)
       },
       cacel: res=>{
-        alert('被粉丝？拒绝位置授权 :(')
+        alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权 :(')
+      },
+      error: res=>{
+        alert(JSON.stringify(res)+' err') //SPA在此时可以更新签名
       }
     })
 
