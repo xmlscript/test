@@ -1,0 +1,30 @@
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
+<script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script>
+<script>
+$.getJSON('/api.php',{url:location.href}, data=>{
+  wx.config(
+    data,
+    jsApiList: [
+      
+    ]
+  );
+});
+
+wx.ready(res=>{
+  wx.openLocation({
+    latitude: 139,
+    longitude: 42,
+    name: 'where',
+    address: 'addr',
+    scale: 1,
+    infoUrl: 'about:blank'
+  })
+})
+
+  wx.error(res=>{
+
+  })
+
+</script>
+
+
