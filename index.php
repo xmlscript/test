@@ -2,7 +2,7 @@
 var_dump($_GET);
 echo '<br>';
 
-$token = wx\token::code($_ENV['APPID'],$_ENV['SECRET'],$_GET['code']);
+$token = wx\token::code($_ENV['APPID'],$_ENV['SECRET'],$_GET['code']);//TODO 做成api即可异步延迟请求
 
 echo $token, '<br>';
 echo $token->openid, '<br>';
@@ -12,6 +12,17 @@ echo $token->openid, '<br>';
 
 //TODO 获取信息这一步骤，似乎没有战略意义，因为昵称头像等信息没有价值
 var_dump(new wx\user($token));
-echo '<hr>';
+?>
+
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
+<script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script>
+<script>
+wx.config(
+  Object.assign(
+    {appid: <?=$_ENV['APPID']?>},
+    $.getJSON('/api.php',location.href)
+  )
+);
+</script>
 
 
