@@ -10,7 +10,10 @@ echo $token, '<br>';
 //TODO 此时将$token->openid存入数据库，作为单独用户出现，除非日后额外绑定手机号是再合并账户
 
 //TODO 获取信息这一步骤，似乎没有战略意义，因为昵称头像等信息没有价值
-var_dump(new wx\user($token,''));
+var_dump(new wx\user($token,'en_US'));
+var_dump(new wx\user($token,'ru'));
 echo '<hr>';
-var_dump(new wx\user($token));
+
+$token1 = wx\token::code($_ENV['APPID'],$_ENV['SECRET'],$_GET['code']);
+var_dump(new wx\user($token1,'kr'));
 
