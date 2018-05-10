@@ -19,50 +19,51 @@ $(document).ready(()=>{
 
     wx.config(cfg)
 
+    wx.error(res=>{
+      alert(JSON.stringify(res)) //SPA在此时可以更新签名
+    })
+
+    wx.checkJsApi({jsApiList: ['openLocation','getLocation']},res=>{
+
+      alert(JSON.stringify(res))
+
+      if(res.checkResult.openLocation === false)
+        alert('不支持openLocation接口 :(')
+      if(res.checkResult.getLocation === false)
+        alert('不支持getLocation接口 :(')
+    })
+
+    wx.ready(res=>{
+
+      wx.getLocation({
+        success: res=>{
+          let latitude = res.latitude;
+          let longitude = res.longitude;
+          let speed = res.speed;
+          let accuracy = res.accuracy;
+          alert(`latitude longitude`)
+        },
+        cacel: res=>{
+          alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权 :(')
+        },
+        error: res=>{
+          alert(JSON.stringify(res)+' err') //SPA在此时可以更新签名
+        }
+      })
+
+      wx.openLocation({
+        latitude: 139,
+        longitude: 42,
+        name: 'where',
+        address: 'addr',
+        scale: 1,
+        infoUrl: 'about:blank'
+      })
+
+    })
+
   });
 
-  wx.checkJsApi({jsApiList: ['openLocation','getLocation']},res=>{
-
-    alert(JSON.stringify(res))
-
-    if(res.checkResult.openLocation === false)
-      alert('不支持openLocation接口 :(')
-    if(res.checkResult.getLocation === false)
-      alert('不支持getLocation接口 :(')
-  })
-
-  wx.ready(res=>{
-
-    wx.getLocation({
-      success: res=>{
-        let latitude = res.latitude;
-        let longitude = res.longitude;
-        let speed = res.speed;
-        let accuracy = res.accuracy;
-        alert(`latitude longitude`)
-      },
-      cacel: res=>{
-        alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权 :(')
-      },
-      error: res=>{
-        alert(JSON.stringify(res)+' err') //SPA在此时可以更新签名
-      }
-    })
-
-    wx.openLocation({
-      latitude: 139,
-      longitude: 42,
-      name: 'where',
-      address: 'addr',
-      scale: 1,
-      infoUrl: 'about:blank'
-    })
-
-  })
-
-  wx.error(res=>{
-    alert(JSON.stringify(res)) //SPA在此时可以更新签名
-  })
 
 })
 
