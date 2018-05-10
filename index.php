@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?=md5(filemtime(__FILE__))?>
 
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
@@ -33,6 +34,7 @@ $.ready(
         let longitude = res.longitude;
         let speed = res.speed;
         let accuracy = res.accuracy;
+        alert(`latitude longitude`)
       },
       cacel: res=>{
         alert('被粉丝？拒绝位置授权 :(')
