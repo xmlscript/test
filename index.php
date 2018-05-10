@@ -17,6 +17,8 @@ $(document).ready(()=>{
       ]}
     )
 
+    alert(JSON.stringify(cfg)) //SPA在此时可以更新签名
+
     wx.config(cfg)
 
     wx.error(res=>{
