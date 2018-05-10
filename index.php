@@ -6,17 +6,22 @@
 <script>
 $.ready(
 
-  $.getJSON('/api.php',{url:location.href}, data=>{
+  $.getJSON('/api.php',{url:location.href}, json=>{
 
-    alert(JSON.stringify(data))
+    alert(JSON.stringify(json))
 
-    wx.config(
-      Object.assign(data, {jsApiList: [
-        'checkJsApi',
-        'openLocation',
-        'getLocation',
-      ]})
-    );
+      let cfg = Object.assign(
+          json,
+          {jsApiList: [
+          'checkJsApi',
+          'openLocation',
+          'getLocation'
+        ]}
+      )
+
+      alert(JSON.stringify(cfg))
+
+    wx.config(cfg)
   });
 
   wx.checkJsApi({jsApiList: ['openLocation','getLocation']},res=>{
