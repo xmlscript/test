@@ -1,3 +1,5 @@
+<?=md5(filemtime(__FILE__))?>
+
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
 <script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script>
 <script>
@@ -44,7 +46,7 @@ wx.ready(res=>{
 })
 
   wx.error(res=>{
-    alert(res) //SPA在此时可以更新签名
+    alert(JSON.stringify(res)) //SPA在此时可以更新签名
   })
 
 </script>
