@@ -3,7 +3,7 @@
 
 <?php
 require 'vendor/autoload.php';
-var_dump(wx\config::construct($_GET['url']));
+var_dump(wx\config::construct('https://host/path/to/file?a=1&b=2'));
 ?>
 
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
