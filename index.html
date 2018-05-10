@@ -5,12 +5,34 @@ $.getJSON('/api.php',{url:location.href}, data=>{
   wx.config(
     data,
     jsApiList: [
-      
+      'checkJsApi',
+      'openLocation',
+      'getLocation',
     ]
   );
 });
 
+wx.checkJsApi({jsApiList: ['openLocation','getLocation']},res=>{
+  if(res.checkResult.openLocation === false)
+    alert('不支持openLocation接口 :(')
+  if(res.checkResult.getLocation === false)
+    alert('不支持getLocation接口 :(')
+})
+
 wx.ready(res=>{
+
+  wx.getLocation({
+    success: res=>{
+      let latitude = res.latitude;
+      let longitude = res.longitude;
+      let speed = res.speed;
+      let accuracy = res.accuracy;
+    },
+    cacel: res=>{
+      alert('被粉丝？拒绝位置授权 :(')
+    }
+  })
+
   wx.openLocation({
     latitude: 139,
     longitude: 42,
@@ -19,10 +41,11 @@ wx.ready(res=>{
     scale: 1,
     infoUrl: 'about:blank'
   })
+
 })
 
   wx.error(res=>{
-
+    alert(res) //SPA在此时可以更新签名
   })
 
 </script>
