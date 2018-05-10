@@ -4,7 +4,7 @@
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
 <script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script>
 <script>
-$.ready(
+$(document).ready((){
 
   $.getJSON('/api.php',{url:location.href}, json=>{
 
@@ -60,7 +60,8 @@ $.ready(
   wx.error(res=>{
     alert(JSON.stringify(res)) //SPA在此时可以更新签名
   })
-)
+
+})
 
 </script>
 
