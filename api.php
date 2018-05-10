@@ -1,8 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
-var_dump($_GET);
-
+header('Content-Type: application/json;charset=utf-8');
 die(json_encode(new wx\config(new mp\token($_ENV['APPID'],$_ENV['SECRET']),$url)));
 
 
