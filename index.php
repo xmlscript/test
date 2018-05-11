@@ -1,6 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?=md5(filemtime(__FILE__))?>
 <?php
+require 'vendor/autoload.php';
 $token = new mp\token($_ENV['APPID'],$_ENV['SECRET']);
 $ticket = new wx\ticket($token,'jsapi');
 echo '<hr>';
