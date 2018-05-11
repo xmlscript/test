@@ -34,15 +34,6 @@ $(document).ready(()=>{
 
     wx.ready(res=>{
 
-      wx.openLocation({
-        latitude: 39,
-        longitude: 114,
-        name: 'where',
-        address: 'addr',
-        scale: 1,
-        infoUrl: 'about:blank'
-      });
-
       wx.getLocation({
         success: res=>{
           let latitude = res.latitude;
@@ -54,6 +45,15 @@ $(document).ready(()=>{
         cacel: res=>{
           alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权')
         }
+      });
+
+      wx.openLocation({
+        latitude: 21.4,
+        longitude: 108.4,
+        name: 'where',
+        address: 'addr',
+        scale: 10,
+        infoUrl: 'about:blank'
       });
 
     })
