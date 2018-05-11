@@ -43,7 +43,7 @@ $(document).ready(()=>{
           alert(JSON.stringify(res))
         },
         cacel: res=>{
-          alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权 :(')
+          alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权')
         },
         error: res=>{
           alert(JSON.stringify(res)+' err') //SPA在此时可以更新签名
@@ -55,18 +55,18 @@ $(document).ready(()=>{
         longitude: 42,
         name: 'where',
         address: 'addr',
-        scale: 1
+        scale: 1,
         infoUrl: '',
         success: res=>{
           alert(JSON.stringify(res)+' openLocation success')
         },
         cacel: res=>{
-          alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权 :(')
+          alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权')
         },
         error: res=>{
           alert(JSON.stringify(res)+' err') //SPA在此时可以更新签名
         }
-      )
+      })
 
     })
 
