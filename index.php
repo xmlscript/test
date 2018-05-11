@@ -17,7 +17,7 @@
 <script>
 $(document).ready(()=>{
 
-  $.getJSON('/api.php',{url:location.href}, json=>{
+  $.getJSON('/api.php',{url:location.href.split('#')[0]}, json=>{
 
     let cfg = Object.assign(
         json,
