@@ -1,6 +1,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?=md5(filemtime(__FILE__))?>
-<?=$_ENV['APPID'],$_ENV['SECRET']?>
+<?php
+$token = new mp\token($_ENV['APPID'],$_ENV['SECRET']);
+$ticket = new wx\ticket($token,'jsapi');
+echo '<hr>';
+var_dump($token);
+echo '<br>';
+var_dump($ticket);
+echo '<hr>';
+?>
+
 
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
 <script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script>
