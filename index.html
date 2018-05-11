@@ -1,16 +1,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<?=md5(filemtime(__FILE__))?>
-<?php
-//require 'vendor/autoload.php';
-//$token = new mp\token($_ENV['APPID'],$_ENV['SECRET']);
-//$ticket = new wx\ticket($token,'jsapi');
-//echo '<hr>';
-//var_dump($token);
-//echo '<br>';
-//var_dump($ticket);
-//echo '<hr>';
-?>
-
 
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js></script>
 <script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script>
@@ -52,7 +40,7 @@ $(document).ready(()=>{
           let longitude = res.longitude;
           let speed = res.speed;
           let accuracy = res.accuracy;
-          alert(`latitude longitude`)
+          alert(JSON.stringify(res))
         },
         cacel: res=>{
           alert(JSON.stringify(res)+' cacel: 被粉丝？手动拒绝位置授权 :(')
@@ -79,5 +67,3 @@ $(document).ready(()=>{
 })
 
 </script>
-
-
