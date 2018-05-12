@@ -53,6 +53,25 @@ $(document).ready(()=>{
         infoUrl: 'about:blank'
       });
 
+      //分享到朋友圈
+      wx.onMenuShareTimeline({
+        title: '标题111',
+        link: 'about:about',
+        imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg',
+        trigger: res=>{
+          alert(JSON.stringify(res))
+        },
+        success: res=>{
+          alert(JSON.stringify(res))
+        },
+        cancel: res=>{
+          alert(JSON.stringify(res))
+        },
+        fail: res=>{
+          alert(JSON.stringify(res))
+        }
+      })
+
     })
 
   });
