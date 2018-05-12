@@ -69,8 +69,11 @@ $(document).ready(()=>{
         },
         fail: res=>{
           alert(JSON.stringify(res))
+        },
+        error: res=>{
+          alert(JSON.stringify(res))
         }
-      })
+      });
 
     })
 
