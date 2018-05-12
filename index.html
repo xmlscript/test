@@ -14,9 +14,7 @@ $(document).ready(()=>{
         'onMenuShareTimeline',
       ];
 
-    let cfg = Object.assign(json, {jsApiList})
-
-    wx.config(cfg)
+    wx.config(Object.assign(json, {jsApiList}))
 
     wx.error(res=>{
       alert(JSON.stringify(res)) //SPA在此时可以更新签名
