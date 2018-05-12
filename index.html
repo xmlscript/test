@@ -22,14 +22,11 @@ $(document).ready(()=>{
       alert(JSON.stringify(res)) //SPA在此时可以更新签名
     })
 
-    wx.checkJsApi({jsApiList: ['openLocation','getLocation']},res=>{
-
-      alert(JSON.stringify(res))
-
-      if(res.checkResult.openLocation === false)
-        alert('不支持openLocation接口 :(')
-      if(res.checkResult.getLocation === false)
-        alert('不支持getLocation接口 :(')
+    wx.checkJsApi({
+      jsApiList: ['openLocation','getLocation']},
+      success: res=>{
+        alert(JSON.stringify(res))
+      }
     })
 
     wx.ready(res=>{
