@@ -27,21 +27,9 @@ class msg extends cb\message{
       case 'menu':
         return $reply->text(new mp\menu($token));
 
-      case 'menu rollback':
-        $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
-        return $reply->text(json_encode($api->menu()));
-
       case 'who':
-        $user = new mp\user($token);
-        return $reply->text($user->info()->nickname);
-
       case 'w':
-        try{
-          $obj = mp\invoke::construct($_ENV['APPID'],$_ENV['SECRET'])->whoami($reply->FromUserName);
-          return $reply->text($obj->nickname??$obj->errmsg);
-        }catch(Throwable $e){
-          return $reply->text($e->getMessage());
-        }
+        return $reply->text((new mp\user($token))->info($reply->FromUserName)->nickname);
 
       case 'img':
       case 'image':
