@@ -29,10 +29,18 @@ $(document).ready(()=>{
 
     wx.ready(res=>{
 
+      wx.scanQRCode({
+        needResult: 0,
+        scanType: ['qrCode','barCode'],
+        success: res=>{
+          alert(JSON.stringify(res))
+        }
+      })
+
       //分享到朋友圈
       wx.onMenuShareTimeline({
-        title: '标题111',
-        link: 'http://movie.douban.com/subject/25785114/',
+        title: 'ENV',
+        link: 'http://app-proj16.1d35.starter-us-east-1.openshiftapps.com/env.php',
         imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg',
         trigger: res=>{
           alert(JSON.stringify(res))
