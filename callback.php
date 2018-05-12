@@ -15,23 +15,23 @@ class msg extends cb\message{
   function text(reply $reply):?DOMDocument{
 
     $str = trim((string)$reply->Recognition?:(string)$reply->Content,"。！? \n\r\t\0");
+    $token = new mp\token(getenv('APPID'),getenv('SECRET'));
 
     switch($str){
       case 'env':
-        return $reply->text($_ENV['APPID'].' '.$_ENV['SECRET']);
+        return $reply->text(getenv('APPID').' '.getenv('SECRET'));
 
       case 'token':
-        return $reply->text(new mp\token($_ENV['APPID'],$_ENV['SECRET']));
+        return $reply->text($token);
 
       case 'menu':
-        return $reply->text(new mp\menu(new mp\token($_ENV['APPID'],$_ENV['SECRET'])));
+        return $reply->text(new mp\menu($token));
 
       case 'menu rollback':
         $api = new mp\invoke($_ENV['APPID'],$_ENV['SECRET']);
         return $reply->text(json_encode($api->menu()));
 
       case 'who':
-        $token = new mp\token($_ENV['APPID'],$_ENV['SECRET']);
         $user = new mp\user($token);
         return $reply->text($user->info()->nickname);
 
