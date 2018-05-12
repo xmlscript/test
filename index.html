@@ -25,12 +25,15 @@ $(document).ready(()=>{
       jsApiList,
       success: res=>{
         alert(JSON.stringify(res))
+      },
+      fail: res=>{
+        alert(JSON.stringify(res))
       }
     })
 
     wx.ready(res=>{
 
-      wx.scanQRCode()
+      //wx.scanQRCode()
 
       //分享到朋友圈
       wx.onMenuShareTimeline({
@@ -64,14 +67,7 @@ $(document).ready(()=>{
         }
       });
 
-      wx.openLocation({
-        latitude: 34,
-        longitude: 109,
-        name: 'where',
-        address: 'addr',
-        scale: 10,
-        infoUrl: 'about:blank'
-      });
+      //wx.openLocation({latitude:34, longitude:109, name:'where', address:'addr', scale:10, infoUrl:'about:blank'});
 
     })
 
