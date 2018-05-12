@@ -23,7 +23,7 @@ $(document).ready(()=>{
     })
 
     wx.checkJsApi({
-      jsApiList: ['openLocation','getLocation']},
+      jsApiList: ['openLocation','getLocation'],
       success: res=>{
         alert(JSON.stringify(res))
       }
