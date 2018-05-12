@@ -7,15 +7,14 @@ $(document).ready(()=>{
 
   $.getJSON('/api.php',{url:location.href.split('#')[0]}, json=>{
 
-    let cfg = Object.assign(
-        json,
-        {jsApiList: [
+    const jsApiList = [
         'checkJsApi',
         'openLocation',
         'getLocation',
         'onMenuShareTimeline',
-      ]}
-    )
+      ];
+
+    let cfg = Object.assign(json, jsApiList)
 
     wx.config(cfg)
 
@@ -24,7 +23,7 @@ $(document).ready(()=>{
     })
 
     wx.checkJsApi({
-      jsApiList: ['openLocation','getLocation'],
+      jsApiList,
       success: res=>{
         alert(JSON.stringify(res))
       }
