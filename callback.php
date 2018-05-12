@@ -29,7 +29,12 @@ class msg extends cb\message{
 
       case 'who':
       case 'w':
-        return $reply->text((new mp\user($token))->info($reply->FromUserName)->nickname);
+        try{
+          return $reply->text(json_encode((new mp\user($token))->info($reply->FromUserName)));
+          return $reply->text((new mp\user($token))->info($reply->FromUserName)->nickname);
+        }catch(Throwable $e){
+          return $e->getMessage();
+        }
 
       case 'img':
       case 'image':
