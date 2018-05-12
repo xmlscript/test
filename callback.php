@@ -27,12 +27,6 @@ class msg extends cb\message{
       case 'menu':
         return $reply->text(new mp\menu($token));
 
-      case 'ww':
-        return $reply->text(json_encode((new mp\user($token))));
-
-      case 'www':
-        return $reply->text($reply->FromUserName);
-
       case 'w':
         try{
           return $reply->text(json_encode((new mp\user($token))->info($reply->FromUserName)));
