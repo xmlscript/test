@@ -30,13 +30,7 @@ $(document).ready(()=>{
 
     wx.ready(res=>{
 
-      wx.scanQRCode({
-        needResult: 0,
-        scanType: ['qrCode','barCode'],
-        success: res=>{
-          alert(JSON.stringify(res))
-        }
-      })
+      wx.scanQRCode()
 
       //分享到朋友圈
       wx.onMenuShareTimeline({
