@@ -38,6 +38,9 @@ class msg extends cb\message{
       case 'image':
         return $reply->image('i8OxLeDRD135otaPf5MyNFskcPkLJ9n-dqMDr_GqUtofJuuZyEgu5KNTaRuH5Os8');
 
+      case 'err'://不等待5s超时，立刻造成错误输出
+        return true;
+
       case '你好':
         return $reply->text('从voice转换文字。。。');
 
