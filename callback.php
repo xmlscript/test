@@ -28,8 +28,11 @@ class msg extends cb\message{
         return $reply->text(new mp\menu($token));
 
       case 'w':
-        $obj = (new mp\user($token))->info($reply->FromUserName);
-        return $reply->text($obj->nickname??$obj->errmsg);
+        try{
+          return $reply->text((new mp\user($token))->info($reply->FromUserName)->nickname);
+        }catch(RuntimeException $e){
+          return $e->getMessage();
+        }
 
       case 'img':
       case 'image':
