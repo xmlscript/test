@@ -56,15 +56,20 @@ class msg extends cb\message{
         return $reply->article('抬头','描述','http://www.qq.com/','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
 
       case 'news1':
-        return $reply->news('抬头111','没有链接','','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
+        $a = $reply->article('抬头111','没有链接','','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
+        return $reply->news($a);
       case 'news2':
-        return $reply->news('','没链接没抬头的描述','','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
+        $a = $reply->article('','没链接没抬头的描述','','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
+        return $reply->news($a);
       case 'news3':
-        return $reply->news('','没链接没抬头没图片的描述');
+        $a = $reply->article('','没链接没抬头没图片的描述');
+        return $reply->news($a);
       case 'news4':
-        return $reply->news('','','','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
+        $a = $reply->article('','','','https://images0.cnblogs.com/i/340216/201403/071720052216404.png');
+        return $reply->news($a);
       case 'news5':
-        return $reply->news();
+        $a = $reply->article();
+        return $reply->news($a);
       case 'haha':
         return $reply->text('不许笑');
       case 'hello':
