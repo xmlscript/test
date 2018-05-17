@@ -24,6 +24,11 @@ class msg extends cb\message{
       case 'token':
         return $reply->text($token);
 
+      case 'ls':
+        $media = new mp\media($token);
+        $wc = $media->get_materialcount();
+        return $reply->text(json_encode($wc));
+
       case 'menu':
         return $reply->text(new mp\menu($token));
 
