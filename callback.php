@@ -20,7 +20,7 @@ class msg extends cb\message{
     switch($str){
       case 'tpl':
         try{
-          return $reply->text($token->tpl()->send(
+          return $reply->text($token->tpl()->发送模板消息(
             $reply->FromUserName,
             'vdg4nAj17gWbPZEkrPH706PV3RRwmDG4cBxnHReLoxQ',
             'about:about',
