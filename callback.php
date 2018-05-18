@@ -31,7 +31,7 @@ class msg extends cb\message{
               'first' => ['value'=>'FIRST嗒','color'=>'#ff00ff'],
               'aaa' => ['value'=>'AAA啊','color'=>'#ffcc33'],
               'bbb' => ['value'=>'BBB吧'],
-              'Remark' => ['value'=>'REMARK咔','color'=>'#00ff00'],
+              'Remark' => ['value'=>'REMARK咔😺','color'=>'#00ff00'],
             ]
           ));
         }catch(RuntimeException $e){
