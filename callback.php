@@ -18,6 +18,19 @@ class msg extends cb\message{
     $token = new mp\token(getenv('APPID'),getenv('SECRET'));
 
     switch($str){
+      case 'tpl':
+        return $reply->text($token->tpl()->send(
+          $reply->FromUserName,
+          'vdg4nAj17gWbPZEkrPH706PV3RRwmDG4cBxnHReLoxQ',
+          'about:about',
+          [
+            'first' => ['value'=>'FIRST嗒','color'=>'#ff00ff'],
+            'aaa' => ['value'=>'AAA啊','color'=>'#ffcc33'],
+            'bbb' => ['value'=>'BBB吧','color'=>'#ff0000'],
+            'Remark' => ['value'=>'REMARK咔','color'=>'#00ff00'],
+          ]
+        ));
+
       case 'env':
         return $reply->text(getenv('APPID').' '.getenv('SECRET'));
 
