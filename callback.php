@@ -7,9 +7,9 @@ class ev extends cb\event{
   function scancode_waitmsg(reply $reply):?\DOMDocument{
     return $reply->text(__METHOD__);
   }
-  //function TEMPLATESENDJOBFINISH(reply $reply):?\DOMDocument{
-    //return $reply->text(__METHOD__);
-  //}
+  function TEMPLATESENDJOBFINISH(reply $reply):?\DOMDocument{
+    return $reply->text(__METHOD__);
+  }
 }
 
 class msg extends cb\message{
