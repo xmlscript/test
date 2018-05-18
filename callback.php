@@ -12,7 +12,6 @@ class ev extends cb\event{
 
 class msg extends cb\message{
 
-
   function text(reply $reply):?DOMDocument{
 
     $str = trim((string)$reply->Recognition?:(string)$reply->Content,"。！? \n\r\t\0");
