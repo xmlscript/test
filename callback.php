@@ -8,10 +8,6 @@ class ev extends cb\event{
     return $reply->text(__METHOD__);
   }
 
-  function TEMPLATESENDJOBFINISH(reply $reply):?\DOMDocument{
-    return $reply->text(__METHOD__);
-  }
-
 }
 
 class msg extends cb\message{
