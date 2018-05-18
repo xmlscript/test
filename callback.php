@@ -7,6 +7,9 @@ class ev extends cb\event{
   function scancode_waitmsg(reply $reply):?\DOMDocument{
     return $reply->text(__METHOD__);
   }
+  function TEMPLATESENDJOBFINISH(reply $reply):?\DOMDocument{
+    return $reply->text(__METHOD__);
+  }
 }
 
 class msg extends cb\message{
@@ -18,6 +21,9 @@ class msg extends cb\message{
     $token = new mp\token(getenv('APPID'),getenv('SECRET'));
 
     switch($str){
+      case 'my':
+        return $reply->text($reply->FromUserName);
+
       case 'tpl':
         try{
           return $reply->text($token->tpl()->发送模板消息(
