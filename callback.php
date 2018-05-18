@@ -23,7 +23,7 @@ class msg extends cb\message{
           return $reply->text($token->tpl()->发送模板消息(
             $reply->FromUserName,
             'vdg4nAj17gWbPZEkrPH706PV3RRwmDG4cBxnHReLoxQ',
-            'about:about',
+            'http://test-proj.1d35.starter-us-east-1.openshiftapps.com/env.php',
             [
               'first' => ['value'=>'FIRST嗒','color'=>'#ff00ff'],
               'aaa' => ['value'=>'AAA啊','color'=>'#ffcc33'],
