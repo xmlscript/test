@@ -1,16 +1,16 @@
-<?php
+<?php # vim: se fdm=marker:
 require 'vendor/autoload.php';
 
 use cb\reply;
 
-class ev extends cb\event{
+class ev extends cb\event{#{{{
   function scancode_waitmsg(reply $reply):?\DOMDocument{
     return $reply->text(__METHOD__);
   }
 
-}
+}#}}}
 
-class msg extends cb\message{
+class msg extends cb\message{#{{{
 
   function text(reply $reply):?DOMDocument{
 
@@ -152,7 +152,7 @@ class msg extends cb\message{
     return $reply->text(__METHOD__);
   }
 
-}
+}#}}}
 
 
 die(new cb\callback($_ENV['TOKEN'], new msg, new ev));

@@ -4,6 +4,7 @@
     "xmlscript/cb": "dev-master",
     "xmlscript/mp": "dev-master",
     "xmlscript/wx": "dev-master",
-    "xmlscript/srv": "dev-master"
+    "xmlscript/srv": "dev-master",
+    "gregwar/captcha": "dev-master"
   }
 }
