@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 die(new class extends srv\api{
   function GET(string $url){
