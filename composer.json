@@ -5,7 +5,6 @@
     "xmlscript/mp": "dev-master",
     "xmlscript/wx": "dev-master",
     "xmlscript/srv": "dev-master",
-    "gregwar/captcha": "dev-master",
-    "xmlscript/sign": "dev-master"
+    "gregwar/captcha": "dev-master"
   }
 }
