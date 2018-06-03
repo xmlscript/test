@@ -1,6 +1,10 @@
 <?php
 require 'vendor/autoload.php';
 
-echo new http\ip, '<hr>', '<pre>';
+echo '<pre>';
 
-var_dump($_SERVER);
+var_dump($_SERVER['HTTP_X_FORWARDED_FOR']);
+
+var_dump($_SERVER['REMOTE_ADDR']);
+
+echo '</pre><hr>', new http\ip;
